@@ -1,0 +1,78 @@
+:root {
+    --loader-progress: 0%;
+}
+
+.webgl-content * {border: 0; margin: 0; padding: 0}
+.webgl-content {position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+
+.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;}
+.webgl-content .footer .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;}
+.webgl-content .footer .webgl-logo {background-image: url('webgl-logo.png'); width: 204px; float: left;}
+.webgl-content .footer .title {margin-right: 10px; float: right;}
+.webgl-content .footer .fullscreen {background-image: url('fullscreen.png'); width: 38px; float: right;}
+
+#loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: [REPLACE_LOADER_BACKROUND];
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader-area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    color: [REPLACE_LOADER_AREA];
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 22px 28px 28px;
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 20px;
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.08);
+    min-width: 240px;
+}
+
+#loader-area::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    height: 12px;
+    margin: 0 16px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    opacity: 0.35;
+}
+
+#loader-area::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    height: 12px;
+    margin: 0 16px;
+    width: var(--loader-progress);
+    background: [REPLACE_LOADER_PROGRESS_FILLED];
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: width 0.25s ease-out, opacity 0.3s ease-out;
+}
+
+#loader-area__percent {
+    font-size: 34px;
+}
+
+@media only screen and (min-device-width: 375px) and (max-width: 800px) {
+    #loader-area {
+        font-size: 26px;
+        padding: 20px 24px 26px;
+    }
+}
