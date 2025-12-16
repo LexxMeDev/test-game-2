@@ -174,7 +174,6 @@
           if (tg) {
             tg.ready();
             tg.expand();
-            tg.requestFullscreen?.();
             tg.onEvent?.('viewportChanged', updateViewportVars);
           }
         } catch (e) {
@@ -264,6 +263,8 @@
         productVersion: "1.0",
       };
 
+      const tg = window.Telegram?.WebApp;
+      const isMobileUA = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const container = document.querySelector("#unity-container");
       const canvas = document.querySelector("#unity-canvas");
       const orientationCheckButton = document.querySelector("#orientation-check");
@@ -350,6 +351,15 @@
       window.addEventListener("resize", handleOrientationUpdate);
       updateOrientationTexts();
       handleOrientationUpdate();
+
+      const allowAutoFullscreen = ORIENTATION_TARGET !== "portrait" || isMobileUA;
+      if (tg && allowAutoFullscreen) {
+        try {
+          tg.requestFullscreen?.();
+        } catch (e) {
+          console.log("TG fullscreen skip", e);
+        }
+      }
     </script>
     
     
