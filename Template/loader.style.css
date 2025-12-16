@@ -15,7 +15,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: [REPLACE_LOADER_BACKROUND];
+    background: #E8F4FBFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@
     flex-direction: column;
     gap: 10px;
     text-align: center;
-    color: [REPLACE_LOADER_AREA];
+    color: #1C2D3FFF;
     font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     font-size: 28px;
     font-weight: 600;
@@ -60,7 +60,7 @@
     height: 12px;
     margin: 0 16px;
     width: var(--loader-progress);
-    background: [REPLACE_LOADER_PROGRESS_FILLED];
+    background: #229ED9FF;
     border-radius: 999px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     transition: width 0.25s ease-out, opacity 0.3s ease-out;
